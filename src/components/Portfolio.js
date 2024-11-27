@@ -1,20 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 import { 
-  Dumbbell, 
   Briefcase, 
   Award, 
   User, 
-  Mail, 
-  Phone, 
-  Calendar,
+  MessageSquare,
   Menu,
   X,
   ChevronRight,
-  MessageSquare,
+  Target,
+  TrendingUp,
+  Users,
   Linkedin,
-  Instagram,
-  Twitter
+  Twitter,
+  Mail,
+  ArrowRight,
+  BarChart,
+  Lightbulb,
+  Rocket
 } from 'lucide-react';
 
 const Portfolio = () => {
@@ -24,11 +28,10 @@ const Portfolio = () => {
     name: '',
     email: '',
     phone: '',
-    consultationType: 'Online',
-    fitnessGoals: '',
-    careerGoals: ''
+    currentRole: '',
+    careerGoals: '',
+    preferredTime: 'Morning'
   });
-  const [formErrors, setFormErrors] = useState({});
 
   useEffect(() => {
     setIsVisible(true);
@@ -44,66 +47,62 @@ const Portfolio = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add form validation and submission logic here
     console.log('Form submitted:', formData);
   };
 
-  const projects = [
+  const successStories = [
     {
-      title: "Fitness Transformation Program",
-      description: "Comprehensive 12-week program combining strength training and nutritional guidance",
-      category: "fitness",
-      results: "15% average body fat reduction",
-      tech: ["Strength Training", "Nutrition Planning", "Progress Tracking"],
-      link: "#"
+      title: "Executive Leadership Transition",
+      description: "Guided a mid-level manager to a C-suite position within 18 months through strategic career planning and leadership development",
+      impact: "150% salary increase",
+      strategies: ["Executive Presence Training", "Strategic Networking", "Board Presentation Skills"],
+      sector: "Technology"
     },
     {
-      title: "Career Transition Success",
-      description: "Career coaching program for professionals seeking industry change",
-      category: "career",
-      results: "85% successful placement rate",
-      tech: ["Resume Writing", "Interview Prep", "Job Search Strategy"],
-      link: "#"
+      title: "Career Pivot Success",
+      description: "Facilitated a successful transition from traditional finance to FinTech leadership for a senior professional",
+      impact: "Secured role at top-5 FinTech company",
+      strategies: ["Industry Analysis", "Skills Translation", "Modern Tech Adaptation"],
+      sector: "Finance"
     },
     {
-      title: "Corporate Wellness Initiative",
-      description: "Combined fitness and career development program for corporate clients",
-      category: "combined",
-      results: "90% employee satisfaction",
-      tech: ["Workplace Wellness", "Career Development", "Team Building"],
-      link: "#"
+      title: "Scale-up Growth Strategy",
+      description: "Developed comprehensive career growth plans for emerging leaders in high-growth startups",
+      impact: "90% promotion rate within 12 months",
+      strategies: ["Leadership Development", "Team Management", "Growth Strategy"],
+      sector: "Startups"
     }
   ];
 
-  const skills = {
-    fitness: [
-      "Strength Training",
-      "Weight Loss Coaching",
-      "Nutritional Guidance",
-      "Fitness Assessments"
+  const expertise = {
+    leadership: [
+      "Executive Presence Development",
+      "Strategic Decision Making",
+      "Change Management",
+      "Team Leadership"
     ],
     career: [
-      "Resume Writing",
-      "Job Search Strategies",
-      "Interview Coaching",
-      "Networking Skills"
+      "Career Strategy & Planning",
+      "Executive Position Transition",
+      "Salary Negotiation",
+      "Personal Branding"
     ],
-    certifications: [
-      "Certified Personal Trainer (NASM)",
-      "Career Development Professional (PARW)",
-      "Nutrition Coach (PN1)",
-      "Life Coach Certification (ICF)"
+    specializations: [
+      "Technology Sector Leadership",
+      "Start-up to Scale-up Transition",
+      "International Business Development",
+      "Digital Transformation"
     ]
   };
 
   return (
     <>
       <Head>
-        <title>John Doe | Personal Trainer & Career Coach | Empowering Your Fitness and Career Journey</title>
-        <meta name="description" content="Certified personal trainer and career coach dedicated to helping clients achieve their fitness and professional goals. Transform your life with personalized training and career guidance." />
+        <title>John Anderson | Executive Career Strategist | Transforming Leaders & Organizations</title>
+        <meta name="description" content="Expert career strategist specializing in executive leadership development, career transitions, and organizational transformation. Transform your professional trajectory with strategic guidance." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:title" content="John Doe | Personal Trainer & Career Coach" />
-        <meta property="og:description" content="Transform your life with personalized training and career guidance." />
+        <meta property="og:title" content="John Anderson | Executive Career Strategist" />
+        <meta property="og:description" content="Transform your professional trajectory with strategic career guidance and executive development." />
         <meta property="og:type" content="website" />
       </Head>
 
@@ -113,27 +112,30 @@ const Portfolio = () => {
             <div className="flex justify-between h-20">
               <div className="flex items-center space-x-4">
                 <a href="#home" className="flex items-center space-x-2">
-                  <Dumbbell className="h-8 w-8 text-indigo-600" />
-                  <span className="font-bold text-xl text-gray-900">John Doe</span>
+                  <img 
+                    src="/api/placeholder/200/80" 
+                    alt="Anderson Consulting" 
+                    className="h-12 w-auto"
+                  />
                 </a>
               </div>
               
               <div className="hidden md:flex items-center space-x-12">
-                <a href="#home" className="text-base font-medium text-gray-700 hover:text-indigo-600 transition-colors flex items-center space-x-1">
-                  <User className="h-4 w-4" />
-                  <span>Home</span>
+                <a href="#methodology" className="text-base font-medium text-gray-700 hover:text-indigo-600 transition-colors flex items-center space-x-1">
+                  <Target className="h-4 w-4" />
+                  <span>Methodology</span>
                 </a>
-                <a href="#projects" className="text-base font-medium text-gray-700 hover:text-indigo-600 transition-colors flex items-center space-x-1">
-                  <Briefcase className="h-4 w-4" />
+                <a href="#success-stories" className="text-base font-medium text-gray-700 hover:text-indigo-600 transition-colors flex items-center space-x-1">
+                  <TrendingUp className="h-4 w-4" />
                   <span>Success Stories</span>
                 </a>
-                <a href="#skills" className="text-base font-medium text-gray-700 hover:text-indigo-600 transition-colors flex items-center space-x-1">
+                <a href="#expertise" className="text-base font-medium text-gray-700 hover:text-indigo-600 transition-colors flex items-center space-x-1">
                   <Award className="h-4 w-4" />
                   <span>Expertise</span>
                 </a>
-                <a href="#contact" className="text-base font-medium text-gray-700 hover:text-indigo-600 transition-colors flex items-center space-x-1">
+                <a href="#contact" className="text-base font-medium text-white bg-indigo-600 px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors flex items-center space-x-1">
                   <MessageSquare className="h-4 w-4" />
-                  <span>Contact</span>
+                  <span>Start Your Journey</span>
                 </a>
               </div>
 
@@ -148,22 +150,7 @@ const Portfolio = () => {
             {isMenuOpen && (
               <div className="md:hidden border-t border-gray-100">
                 <nav className="px-2 pt-2 pb-3 space-y-1">
-                  <a href="#home" className="flex items-center space-x-2 px-4 py-3 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md transition-colors">
-                    <User className="h-4 w-4" />
-                    <span>Home</span>
-                  </a>
-                  <a href="#projects" className="flex items-center space-x-2 px-4 py-3 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md transition-colors">
-                    <Briefcase className="h-4 w-4" />
-                    <span>Success Stories</span>
-                  </a>
-                  <a href="#skills" className="flex items-center space-x-2 px-4 py-3 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md transition-colors">
-                    <Award className="h-4 w-4" />
-                    <span>Expertise</span>
-                  </a>
-                  <a href="#contact" className="flex items-center space-x-2 px-4 py-3 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md transition-colors">
-                    <MessageSquare className="h-4 w-4" />
-                    <span>Contact</span>
-                  </a>
+                  {/* Mobile menu items */}
                 </nav>
               </div>
             )}
@@ -171,48 +158,91 @@ const Portfolio = () => {
         </header>
 
         <main>
-          <section id="home" className="pt-32 pb-24 px-4">
+          <section id="home" className="pt-32 pb-24 px-4 bg-gradient-to-b from-gray-50 to-white">
             <div className={`max-w-4xl mx-auto transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
               <div className="text-center">
                 <h1 className="text-5xl font-extrabold text-gray-900 tracking-tight mb-8">
-                  Elevate Your <span className="text-indigo-600">Fitness</span> and <span className="text-indigo-600">Career</span>
-                  <br />with Expert Guidance
+                  Transform Your Career Path
+                  <br />
+                  <span className="text-indigo-600">Elevate Your Impact</span>
                 </h1>
                 <p className="text-xl font-medium text-gray-600 mb-12 leading-relaxed max-w-3xl mx-auto">
-                  Personalized Training | Career Orientation | Job Search Strategies
+                  Strategic career guidance for ambitious professionals seeking to maximize their potential and accelerate their journey to executive leadership.
                 </p>
-                <a 
-                  href="#contact" 
-                  className="inline-flex items-center px-8 py-4 bg-indigo-600 text-white text-lg font-medium rounded-xl hover:bg-indigo-700 transition-colors shadow-lg hover:shadow-xl"
-                >
-                  Start Your Journey Today
-                  <ChevronRight className="ml-2 h-5 w-5" />
-                </a>
+                <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6">
+                  <a 
+                    href="#contact" 
+                    className="inline-flex items-center px-8 py-4 bg-indigo-600 text-white text-lg font-medium rounded-xl hover:bg-indigo-700 transition-colors shadow-lg hover:shadow-xl"
+                  >
+                    Schedule a Strategy Session
+                    <ChevronRight className="ml-2 h-5 w-5" />
+                  </a>
+                  <a 
+                    href="#success-stories" 
+                    className="inline-flex items-center px-8 py-4 bg-white text-indigo-600 text-lg font-medium rounded-xl hover:bg-gray-50 transition-colors shadow-lg hover:shadow-xl border border-indigo-200"
+                  >
+                    View Success Stories
+                    <ChevronRight className="ml-2 h-5 w-5" />
+                  </a>
+                </div>
               </div>
             </div>
           </section>
 
-          <section id="projects" className="py-24 bg-gray-50 px-4">
+          <section id="methodology" className="py-24 bg-white px-4">
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">Success Stories</h2>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {projects.map((project, index) => (
+              <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">Our Approach to Career Excellence</h2>
+              <div className="grid md:grid-cols-3 gap-12">
+                <div className="text-center space-y-6">
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-indigo-100 text-indigo-600 mb-6">
+                    <Target className="h-8 w-8" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900">Strategic Planning</h3>
+                  <p className="text-gray-600">
+                    Develop a clear roadmap for your career progression with actionable milestones and measurable objectives.
+                  </p>
+                </div>
+                <div className="text-center space-y-6">
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-indigo-100 text-indigo-600 mb-6">
+                    <Lightbulb className="h-8 w-8" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900">Skill Enhancement</h3>
+                  <p className="text-gray-600">
+                    Identify and develop crucial leadership competencies that set you apart in today's competitive landscape.
+                  </p>
+                </div>
+                <div className="text-center space-y-6">
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-indigo-100 text-indigo-600 mb-6">
+                    <Rocket className="h-8 w-8" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900">Execution Excellence</h3>
+                  <p className="text-gray-600">
+                    Transform strategy into reality with proven frameworks and ongoing support for sustainable success.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="success-stories" className="py-24 bg-gray-50 px-4">
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">Client Success Stories</h2>
+              <div className="grid md:grid-cols-3 gap-8">
+                {successStories.map((story, index) => (
                   <article key={index} className="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
                     <div className="p-8">
-                      <h3 className="text-2xl font-bold text-gray-900 mb-4">{project.title}</h3>
-                      <p className="text-gray-600 mb-4">{project.description}</p>
-                      <p className="text-indigo-600 font-semibold mb-6">{project.results}</p>
-                      <ul className="flex flex-wrap gap-2 mb-6">
-                        {project.tech.map((tech, techIndex) => (
-                          <li key={techIndex} className="px-4 py-2 bg-indigo-50 text-indigo-600 rounded-full text-sm font-medium">
-                            {tech}
+                      <div className="text-indigo-600 font-semibold mb-4">{story.sector}</div>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-4">{story.title}</h3>
+                      <p className="text-gray-600 mb-4">{story.description}</p>
+                      <p className="text-indigo-600 font-semibold mb-6">{story.impact}</p>
+                      <ul className="space-y-2">
+                        {story.strategies.map((strategy, idx) => (
+                          <li key={idx} className="flex items-center space-x-2 text-gray-600">
+                            <ChevronRight className="h-4 w-4 text-indigo-600" />
+                            <span>{strategy}</span>
                           </li>
                         ))}
                       </ul>
-                      <a href={project.link} className="inline-flex items-center text-indigo-600 font-medium hover:text-indigo-700">
-                        Learn More
-                        <ChevronRight className="ml-1 h-4 w-4" />
-                      </a>
                     </div>
                   </article>
                 ))}
@@ -220,67 +250,41 @@ const Portfolio = () => {
             </div>
           </section>
 
-          <section id="skills" className="py-24 bg-white px-4">
+          <section id="expertise" className="py-24 bg-white px-4">
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">Expertise</h2>
+              <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">Areas of Expertise</h2>
               <div className="grid md:grid-cols-3 gap-8">
-                <div className="space-y-6">
-                  <h3 className="text-2xl font-bold text-gray-900 flex items-center space-x-2">
-                    <Dumbbell className="h-6 w-6 text-indigo-600" />
-                    <span>Fitness Training</span>
-                  </h3>
-                  <ul className="space-y-4">
-                    {skills.fitness.map((skill, index) => (
-                      <li key={index} className="flex items-center space-x-2 text-gray-700">
-                        <ChevronRight className="h-4 w-4 text-indigo-600" />
-                        <span>{skill}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                
-                <div className="space-y-6">
-                  <h3 className="text-2xl font-bold text-gray-900 flex items-center space-x-2">
-                    <Briefcase className="h-6 w-6 text-indigo-600" />
-                    <span>Career Coaching</span>
-                  </h3>
-                  <ul className="space-y-4">
-                    {skills.career.map((skill, index) => (
-                      <li key={index} className="flex items-center space-x-2 text-gray-700">
-                        <ChevronRight className="h-4 w-4 text-indigo-600" />
-                        <span>{skill}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                
-                <div className="space-y-6">
-                  <h3 className="text-2xl font-bold text-gray-900 flex items-center space-x-2">
-                    <Award className="h-6 w-6 text-indigo-600" />
-                    <span>Certifications</span>
-                  </h3>
-                  <ul className="space-y-4">
-                    {skills.certifications.map((cert, index) => (
-                      <li key={index} className="flex items-center space-x-2 text-gray-700">
-                        <ChevronRight className="h-4 w-4 text-indigo-600" />
-                        <span>{cert}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                {Object.entries(expertise).map(([category, skills]) => (
+                  <div key={category} className="space-y-6">
+                    <h3 className="text-2xl font-bold text-gray-900 flex items-center space-x-2">
+                      {category === 'leadership' && <Users className="h-6 w-6 text-indigo-600" />}
+                      {category === 'career' && <TrendingUp className="h-6 w-6 text-indigo-600" />}
+                      {category === 'specializations' && <Award className="h-6 w-6 text-indigo-600" />}
+                      <span className="capitalize">{category}</span>
+                    </h3>
+                    <ul className="space-y-4">
+                      {skills.map((skill, index) => (
+                        <li key={index} className="flex items-center space-x-2 text-gray-700">
+                          <ChevronRight className="h-4 w-4 text-indigo-600" />
+                          <span>{skill}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
               </div>
             </div>
           </section>
 
           <section id="contact" className="py-24 bg-gray-50 px-4">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl font-bold text-center text-gray-900 mb-8">Get In Touch</h2>
+              <h2 className="text-4xl font-bold text-center text-gray-900 mb-8">Begin Your Transformation</h2>
               <p className="text-xl text-center text-gray-600 mb-12 leading-relaxed">
-                Ready to transform your fitness and career? Let's work together to achieve your goals!
+                Take the first step towards accelerating your career trajectory. Schedule a complimentary strategy session to discuss your professional goals.
               </p>
-              <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white p-8 rounded-xl shadow-lg">
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-700">Name</label>
+                  <label className="text-sm font-medium text-gray-700">Full Name</label>
                   <input 
                     type="text"
                     name="name"
@@ -291,7 +295,7 @@ const Portfolio = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-700">Email</label>
+                  <label className="text-sm font-medium text-gray-700">Email Address</label>
                   <input 
                     type="email"
                     name="email"
@@ -312,36 +316,40 @@ const Portfolio = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-700">Consultation Type</label>
-                  <select 
-                    name="consultationType"
-                    value={formData.consultationType}
+                  <label className="text-sm font-medium text-gray-700">Current Role</label>
+                  <input 
+                    type="text"
+                    name="currentRole"
+                    value={formData.currentRole}
                     onChange={handleInputChange}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-600 focus:border-transparent"
-                  >
-                    <option value="Online">Online</option>
-                    <option value="In-Person">In-Person</option>
-                  </select>
+                    required
+                  />
                 </div>
                 <div className="md:col-span-2 space-y-2">
-                  <label className="text-sm font-medium text-gray-700">Fitness Goals</label>
-                  <textarea 
-                    name="fitnessGoals"
-                    value={formData.fitnessGoals}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-600 focus:border-transparent"
-                    rows="3"
-                  ></textarea>
-                </div>
-                <div className="md:col-span-2 space-y-2">
-                  <label className="text-sm font-medium text-gray-700">Career Goals</label>
+                  <label className="text-sm font-medium text-gray-700">Career Aspirations</label>
                   <textarea 
                     name="careerGoals"
                     value={formData.careerGoals}
                     onChange={handleInputChange}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-600 focus:border-transparent"
                     rows="3"
+                    placeholder="Tell us about your career goals and what you'd like to achieve"
+                    required
                   ></textarea>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-700">Preferred Consultation Time</label>
+                  <select 
+                    name="preferredTime"
+                    value={formData.preferredTime}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-600 focus:border-transparent"
+                  >
+                    <option value="Morning">Morning (9AM - 12PM)</option>
+                    <option value="Afternoon">Afternoon (1PM - 5PM)</option>
+                    <option value="Evening">Evening (6PM - 8PM)</option>
+                  </select>
                 </div>
                 <div className="md:col-span-2">
                   <button 
@@ -349,22 +357,22 @@ const Portfolio = () => {
                     className="w-full py-4 bg-indigo-600 text-white text-lg font-medium rounded-xl hover:bg-indigo-700 transition-colors shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
                   >
                     <MessageSquare className="h-5 w-5" />
-                    <span>Send Message</span>
+                    <span>Schedule Strategy Session</span>
                   </button>
                 </div>
               </form>
 
               <div className="mt-12 text-center">
-                <p className="text-lg text-gray-600 mb-6">Connect with me on social media</p>
+                <p className="text-lg text-gray-600 mb-6">Connect with me on professional networks</p>
                 <div className="flex justify-center space-x-6">
                   <a href="#" className="text-gray-600 hover:text-indigo-600 transition-colors">
                     <Linkedin className="h-6 w-6" />
                   </a>
                   <a href="#" className="text-gray-600 hover:text-indigo-600 transition-colors">
-                    <Instagram className="h-6 w-6" />
-                  </a>
-                  <a href="#" className="text-gray-600 hover:text-indigo-600 transition-colors">
                     <Twitter className="h-6 w-6" />
+                  </a>
+                  <a href="mailto:contact@andersonconsulting.com" className="text-gray-600 hover:text-indigo-600 transition-colors">
+                    <Mail className="h-6 w-6" />
                   </a>
                 </div>
               </div>
@@ -376,22 +384,22 @@ const Portfolio = () => {
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-3 gap-8">
               <div>
-                <h3 className="font-bold text-lg text-gray-900 mb-4">About</h3>
+                <h3 className="font-bold text-lg text-gray-900 mb-4">About Anderson Consulting</h3>
                 <p className="text-gray-600">
-                  Dedicated to helping clients achieve their fitness and professional goals through personalized training and career guidance.
+                  Leading career strategy firm specializing in executive development, leadership transitions, and organizational transformation. Our proven methodologies drive measurable results.
                 </p>
               </div>
               <div>
-                <h3 className="font-bold text-lg text-gray-900 mb-4">Quick Links</h3>
+                <h3 className="font-bold text-lg text-gray-900 mb-4">Resources</h3>
                 <ul className="space-y-2">
                   <li>
-                    <a href="#home" className="text-gray-600 hover:text-indigo-600 transition-colors">Home</a>
+                    <a href="#methodology" className="text-gray-600 hover:text-indigo-600 transition-colors">Our Methodology</a>
                   </li>
                   <li>
-                    <a href="#projects" className="text-gray-600 hover:text-indigo-600 transition-colors">Success Stories</a>
+                    <a href="#success-stories" className="text-gray-600 hover:text-indigo-600 transition-colors">Success Stories</a>
                   </li>
                   <li>
-                    <a href="#skills" className="text-gray-600 hover:text-indigo-600 transition-colors">Expertise</a>
+                    <a href="#expertise" className="text-gray-600 hover:text-indigo-600 transition-colors">Areas of Expertise</a>
                   </li>
                   <li>
                     <a href="#contact" className="text-gray-600 hover:text-indigo-600 transition-colors">Contact</a>
@@ -399,8 +407,8 @@ const Portfolio = () => {
                 </ul>
               </div>
               <div>
-                <h3 className="font-bold text-lg text-gray-900 mb-4">Newsletter</h3>
-                <p className="text-gray-600 mb-4">Subscribe for tips on fitness and career development!</p>
+                <h3 className="font-bold text-lg text-gray-900 mb-4">Stay Updated</h3>
+                <p className="text-gray-600 mb-4">Receive expert insights on career development and leadership strategies</p>
                 <form className="flex space-x-2">
                   <input 
                     type="email" 
@@ -417,13 +425,12 @@ const Portfolio = () => {
               </div>
             </div>
             <div className="mt-12 pt-8 border-t border-gray-100 text-center text-gray-600">
-              <p className="text-sm">© {new Date().getFullYear()} John Doe. All rights reserved.</p>
+              <p className="text-sm">© {new Date().getFullYear()} Anderson Consulting. All rights reserved.</p>
             </div>
           </div>
         </footer>
       </div>
     </>
   );
-};
-
+}
 export default Portfolio;
