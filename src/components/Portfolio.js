@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, GitHub, Linkedin, Mail, ExternalLink, ChevronDown } from 'lucide-react';
+import { 
+  Menu as MenuIcon,
+  X as XIcon,
+  Github,
+  Linkedin,
+  Mail as MailIcon,
+  ExternalLink,
+  ChevronDown 
+} from 'lucide-react';
 
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
