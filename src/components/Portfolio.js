@@ -1,17 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  Menu as MenuIcon,
-  X as XIcon,
-  Github,
-  Linkedin,
-  Mail as MailIcon,
-  ExternalLink,
-  ChevronDown 
-} from 'lucide-react';
 
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -39,11 +29,6 @@ const Portfolio = () => {
     }
   ];
 
-  const skills = [
-    "JavaScript (ES6+)", "React", "Node.js", "Python",
-    "TypeScript", "GraphQL", "Docker", "AWS"
-  ];
-
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Navigation */}
@@ -63,14 +48,12 @@ const Portfolio = () => {
             </div>
 
             {/* Mobile menu button */}
-            <div className="md:hidden flex items-center">
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-gray-700 hover:text-indigo-600 focus:outline-none"
-              >
-                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
-            </div>
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden text-gray-700 hover:text-indigo-600 focus:outline-none"
+            >
+              Menu
+            </button>
           </div>
         </div>
 
@@ -97,20 +80,6 @@ const Portfolio = () => {
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
               A passionate full-stack developer crafting beautiful and functional web experiences
             </p>
-            <div className="flex justify-center space-x-4">
-              <a href="#" className="text-gray-600 hover:text-indigo-600 transition-colors">
-                <GitHub size={24} />
-              </a>
-              <a href="#" className="text-gray-600 hover:text-indigo-600 transition-colors">
-                <Linkedin size={24} />
-              </a>
-              <a href="#" className="text-gray-600 hover:text-indigo-600 transition-colors">
-                <Mail size={24} />
-              </a>
-            </div>
-            <div className="mt-12 animate-bounce">
-              <ChevronDown size={24} className="mx-auto text-gray-400" />
-            </div>
           </div>
         </div>
       </section>
@@ -138,30 +107,13 @@ const Portfolio = () => {
                       </span>
                     ))}
                   </div>
-                  <a
+                  
                     href={project.link}
                     className="inline-flex items-center text-indigo-600 hover:text-indigo-700"
                   >
-                    View Project <ExternalLink size={16} className="ml-1" />
+                    View Project
                   </a>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Skills Section */}
-      <section id="skills" className="py-20 bg-gray-50 px-4">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">Skills</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {skills.map((skill, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-lg p-4 shadow-sm transform transition-all duration-300 hover:-translate-y-1"
-              >
-                <p className="text-center text-gray-700">{skill}</p>
               </div>
             ))}
           </div>
@@ -176,12 +128,11 @@ const Portfolio = () => {
             I'm always open to new opportunities and interesting projects.
             Feel free to reach out if you'd like to connect!
           </p>
-          <a
+          
             href="mailto:your.email@example.com"
             className="inline-flex items-center px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
           >
             Send Message
-            <Mail size={20} className="ml-2" />
           </a>
         </div>
       </section>
