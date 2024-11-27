@@ -41,24 +41,24 @@ const Portfolio = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <nav className="fixed w-full bg-white shadow-sm z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
+    <div className="min-h-screen bg-white">
+      <nav className="fixed w-full bg-white shadow-md z-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between h-20">
             <div className="flex items-center">
-              <span className="text-2xl font-bold text-indigo-600">YourName</span>
+              <span className="text-2xl font-extrabold text-indigo-600 tracking-tight">YourName</span>
             </div>
             
-            <div className="hidden md:flex items-center space-x-8">
-              <a href="#home" className="text-gray-700 hover:text-indigo-600 transition-colors">Home</a>
-              <a href="#projects" className="text-gray-700 hover:text-indigo-600 transition-colors">Projects</a>
-              <a href="#skills" className="text-gray-700 hover:text-indigo-600 transition-colors">Skills</a>
-              <a href="#contact" className="text-gray-700 hover:text-indigo-600 transition-colors">Contact</a>
+            <div className="hidden md:flex items-center space-x-12">
+              <a href="#home" className="text-base font-medium text-gray-700 hover:text-indigo-600 transition-colors">Home</a>
+              <a href="#projects" className="text-base font-medium text-gray-700 hover:text-indigo-600 transition-colors">Projects</a>
+              <a href="#skills" className="text-base font-medium text-gray-700 hover:text-indigo-600 transition-colors">Skills</a>
+              <a href="#contact" className="text-base font-medium text-gray-700 hover:text-indigo-600 transition-colors">Contact</a>
             </div>
 
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden text-gray-700 hover:text-indigo-600 focus:outline-none"
+              className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-indigo-600 focus:outline-none"
             >
               Menu
             </button>
@@ -66,48 +66,49 @@ const Portfolio = () => {
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden bg-white">
+          <div className="md:hidden bg-white border-t border-gray-100">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              <a href="#home" className="block px-3 py-2 text-gray-700 hover:text-indigo-600 transition-colors">Home</a>
-              <a href="#projects" className="block px-3 py-2 text-gray-700 hover:text-indigo-600 transition-colors">Projects</a>
-              <a href="#skills" className="block px-3 py-2 text-gray-700 hover:text-indigo-600 transition-colors">Skills</a>
-              <a href="#contact" className="block px-3 py-2 text-gray-700 hover:text-indigo-600 transition-colors">Contact</a>
+              <a href="#home" className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md transition-colors">Home</a>
+              <a href="#projects" className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md transition-colors">Projects</a>
+              <a href="#skills" className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md transition-colors">Skills</a>
+              <a href="#contact" className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md transition-colors">Contact</a>
             </div>
           </div>
         )}
       </nav>
 
-      <section id="home" className="pt-32 pb-20 px-4">
-        <div className={`max-w-7xl mx-auto transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+      <section id="home" className="pt-32 pb-24 px-4 bg-gradient-to-b from-gray-50 to-white">
+        <div className={`max-w-4xl mx-auto transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
           <div className="text-center">
-            <h1 className="text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-6xl font-extrabold text-gray-900 tracking-tight mb-8">
               Hi, I'm <span className="text-indigo-600">YourName</span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl font-medium text-gray-600 mb-12 leading-relaxed max-w-3xl mx-auto">
               A passionate full-stack developer crafting beautiful and functional web experiences
             </p>
           </div>
         </div>
       </section>
 
-      <section id="projects" className="py-20 bg-white px-4">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">Projects</h2>
+      <section id="projects" className="py-24 bg-gray-50 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">Projects</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2">
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{project.title}</h3>
-                  <p className="text-gray-600 mb-4">{project.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
+              <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <div className="p-8">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{project.title}</h3>
+                  <p className="text-gray-600 mb-6 leading-relaxed">{project.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-6">
                     {project.tech.map((tech, techIndex) => (
-                      <span key={techIndex} className="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm">
+                      <span key={techIndex} className="px-4 py-2 bg-indigo-50 text-indigo-600 rounded-full text-sm font-medium">
                         {tech}
                       </span>
                     ))}
                   </div>
-                  <a href={project.link} className="inline-flex items-center text-indigo-600 hover:text-indigo-700">
+                  <a href={project.link} className="inline-flex items-center text-indigo-600 font-medium hover:text-indigo-700">
                     View Project
+                    <span className="ml-2">→</span>
                   </a>
                 </div>
               </div>
@@ -116,35 +117,38 @@ const Portfolio = () => {
         </div>
       </section>
 
-      <section id="skills" className="py-20 bg-gray-50 px-4">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">Skills</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <section id="skills" className="py-24 bg-white px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">Skills</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {skills.map((skill, index) => (
-              <div key={index} className="bg-white rounded-lg p-4 shadow-sm transform transition-all duration-300 hover:-translate-y-1">
-                <p className="text-center text-gray-700">{skill}</p>
+              <div key={index} className="bg-gray-50 rounded-xl p-6 shadow-sm transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+                <p className="text-center text-gray-800 font-medium">{skill}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="contact" className="py-20 bg-white px-4">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Get In Touch</h2>
-          <p className="text-gray-600 mb-8">
+      <section id="contact" className="py-24 bg-gray-50 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl font-bold text-gray-900 mb-8">Get In Touch</h2>
+          <p className="text-xl text-gray-600 mb-12 leading-relaxed">
             I'm always open to new opportunities and interesting projects.
             Feel free to reach out if you'd like to connect!
           </p>
-          <a href="mailto:your.email@example.com" className="inline-flex items-center px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
+          <a 
+            href="mailto:your.email@example.com" 
+            className="inline-flex items-center px-8 py-4 bg-indigo-600 text-white text-lg font-medium rounded-xl hover:bg-indigo-700 transition-colors shadow-lg hover:shadow-xl"
+          >
             Send Message
           </a>
         </div>
       </section>
 
-      <footer className="bg-gray-50 py-8">
-        <div className="max-w-7xl mx-auto px-4 text-center text-gray-600">
-          <p>© {new Date().getFullYear()} YourName. All rights reserved.</p>
+      <footer className="bg-white py-12 px-4">
+        <div className="max-w-6xl mx-auto text-center text-gray-600">
+          <p className="text-sm">© {new Date().getFullYear()} YourName. All rights reserved.</p>
         </div>
       </footer>
     </div>
