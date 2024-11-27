@@ -49,9 +49,13 @@ const Portfolio = () => {
               <div className="flex items-center space-x-4">
                 <a href="#home">
                   <img 
-                    src="/images/logo.png" 
+                    src="https://images-platform.99static.com//5BDvCvaRI8b4x3LVBcAmVu9VGRg=/0x0:1969x1969/fit-in/500x500/99designs-contests-attachments/102/102761/attachment_102761163" 
                     alt="Portfolio Logo" 
                     className="h-10 w-auto"
+                    onError={(e) => {
+                      e.target.onerror = null; // Prevent infinite loop
+                      e.target.src = "/images/fallback-logo.png"; // Optional: fallback image
+                    }}
                   />
                 </a>
               </div>
