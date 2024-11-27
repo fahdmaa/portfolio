@@ -29,9 +29,19 @@ const Portfolio = () => {
     }
   ];
 
+  const skills = [
+    "JavaScript (ES6+)",
+    "React",
+    "Node.js",
+    "Python",
+    "TypeScript",
+    "GraphQL",
+    "Docker",
+    "AWS"
+  ];
+
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Navigation */}
       <nav className="fixed w-full bg-white shadow-sm z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
@@ -39,7 +49,6 @@ const Portfolio = () => {
               <span className="text-2xl font-bold text-indigo-600">YourName</span>
             </div>
             
-            {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
               <a href="#home" className="text-gray-700 hover:text-indigo-600 transition-colors">Home</a>
               <a href="#projects" className="text-gray-700 hover:text-indigo-600 transition-colors">Projects</a>
@@ -47,7 +56,6 @@ const Portfolio = () => {
               <a href="#contact" className="text-gray-700 hover:text-indigo-600 transition-colors">Contact</a>
             </div>
 
-            {/* Mobile menu button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="md:hidden text-gray-700 hover:text-indigo-600 focus:outline-none"
@@ -57,7 +65,6 @@ const Portfolio = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden bg-white">
             <div className="px-2 pt-2 pb-3 space-y-1">
@@ -70,7 +77,6 @@ const Portfolio = () => {
         )}
       </nav>
 
-      {/* Hero Section */}
       <section id="home" className="pt-32 pb-20 px-4">
         <div className={`max-w-7xl mx-auto transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
           <div className="text-center">
@@ -84,33 +90,23 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Projects Section */}
       <section id="projects" className="py-20 bg-white px-4">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">Projects</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2"
-              >
+              <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2">
                 <div className="p-6">
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">{project.title}</h3>
                   <p className="text-gray-600 mb-4">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tech.map((tech, techIndex) => (
-                      <span
-                        key={techIndex}
-                        className="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
-                      >
+                      <span key={techIndex} className="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm">
                         {tech}
                       </span>
                     ))}
                   </div>
-                  
-                    href={project.link}
-                    className="inline-flex items-center text-indigo-600 hover:text-indigo-700"
-                  >
+                  <a href={project.link} className="inline-flex items-center text-indigo-600 hover:text-indigo-700">
                     View Project
                   </a>
                 </div>
@@ -120,7 +116,19 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Contact Section */}
+      <section id="skills" className="py-20 bg-gray-50 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">Skills</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {skills.map((skill, index) => (
+              <div key={index} className="bg-white rounded-lg p-4 shadow-sm transform transition-all duration-300 hover:-translate-y-1">
+                <p className="text-center text-gray-700">{skill}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="contact" className="py-20 bg-white px-4">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-8">Get In Touch</h2>
@@ -128,16 +136,12 @@ const Portfolio = () => {
             I'm always open to new opportunities and interesting projects.
             Feel free to reach out if you'd like to connect!
           </p>
-          
-            href="mailto:your.email@example.com"
-            className="inline-flex items-center px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
-          >
+          <a href="mailto:your.email@example.com" className="inline-flex items-center px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
             Send Message
           </a>
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="bg-gray-50 py-8">
         <div className="max-w-7xl mx-auto px-4 text-center text-gray-600">
           <p>© {new Date().getFullYear()} YourName. All rights reserved.</p>
